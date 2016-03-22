@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{y}}년 {{m}}월</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+        <table class=ex1>
+            <tr>
+                <thead>
+                    <th colspan="7">{{y}}년 {{m}}월</th>
+                </thead>
+            </tr>
+
+            <tr>
+                <td>일</td>
+                <td>월</td>
+                <td>화</td>
+                <td>수</td>
+                <td>목</td>
+                <td>금</td>
+                <td>토</td>
+            </tr>
+
+            {% for day in dayInMonth %}
+                <tr>
+                {% for d in day %}
+                    {% if d == 0 %}
+                        <td></td>
+                    {% else %}
+                        <td>{{d}}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+
+</html>
